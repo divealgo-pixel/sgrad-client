@@ -32,7 +32,7 @@ export const FormField = ({
   const error = errors?.[name];
 
   const registerOptions = {
-    required: field.required ? `${label} is required` : false,
+    required: field?.required ? `${label} is required` : false,
   };
 
   switch (type) {

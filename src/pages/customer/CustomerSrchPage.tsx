@@ -33,6 +33,11 @@ export const CustomerSrchPage = () => {
 
     // navigate("/customer/add");
   };
+    const handleMoiPage = () => {
+    navigate('/moi');
+
+    // navigate("/customer/add");
+  };
 
   return (
     <Paper
@@ -50,6 +55,9 @@ export const CustomerSrchPage = () => {
         <Stack direction="row" spacing={2}>
           <PrimaryButton variant="outlined" startIcon={<PersonAddAlt1Icon />} onClick={handleAddCustomer}>
             Add Customer
+          </PrimaryButton>
+           <PrimaryButton variant="outlined" startIcon={<PersonAddAlt1Icon />} onClick={handleMoiPage}>
+            Moi Page
           </PrimaryButton>
         </Stack>
       </StyledSection>

@@ -1,13 +1,15 @@
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+
 
 import type { ReactNode } from 'react';
 
 export interface StatItem {
   label: string;
   value: string | number;
-  icon: ReactNode;
+  icon?: ReactNode;
 }
 
 interface StatsSectionProps {
@@ -16,39 +18,38 @@ interface StatsSectionProps {
 
 const StatsSection = ({ items }: StatsSectionProps) => {
   return (
-    <Grid container spacing={2}>
+    <Grid container rowSpacing={2} columnSpacing={2}>
       {items.map((item) => (
         <Grid
           key={item.label}
           size={{
-            xs: 12,
-            sm: 6,
-            md: 4,
+            xs: 6,
+            sm: 3,
+            md: 3,
           }}
         >
           <Paper
             elevation={1}
             sx={{
-              p: 3,
+              p: 2,
+              mx:1,
               borderRadius: 3,
-              height: '100%',
             }}
           >
-            {item.icon}
+             <Typography component="div" variant="h4" color="text.secondary">
+              {item.label}
+            </Typography>
+            {item.icon ?? <CheckCircleOutlineOutlinedIcon/>}
 
             <Typography
               component="div"
-              variant="h4"
+              variant="h3"
               sx={{
                 fontWeight: 700,
                 mt: 1,
               }}
             >
               {item.value}
-            </Typography>
-
-            <Typography component="p" color="text.secondary">
-              {item.label}
             </Typography>
           </Paper>
         </Grid>
