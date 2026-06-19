@@ -1,15 +1,12 @@
 import MenuItem from '@mui/material/MenuItem';
-import type {
-  FieldErrors,
-  FieldValues,
-  UseFormRegister,
-} from 'react-hook-form';
+import type { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 
 import type { Field } from './types/form';
 import { StyledCheckbox } from '../atoms/StyledCheckbox';
 import { StyledFormControlLabel } from '../atoms/StyledFormControlLabel';
 import { StyledSwitch } from '../atoms/StyledSwitch';
 import { StyledTextField } from '../atoms/StyledTextField';
+import { StyledAutocomplete } from '../atoms/StyledAutoComplete';
 
 type FormFieldProps = {
   field: Field;
@@ -17,17 +14,8 @@ type FormFieldProps = {
   errors?: FieldErrors<FieldValues>;
 };
 
-export const FormField = ({
-  field,
-  register,
-  errors,
-}: FormFieldProps) => {
-  const {
-    type,
-    label,
-    name,
-    ...rest
-  } = field;
+export const FormField = ({ field, register, errors }: FormFieldProps) => {
+  const { type, label, name, ...rest } = field;
 
   const error = errors?.[name];
 
@@ -73,7 +61,28 @@ export const FormField = ({
           {...rest}
         />
       );
-
+    case 'autocomplete':
+      return (
+        <StyledAutocomplete
+          freeSolo
+          options={
+            Array.isArray(field.options) ? field.options.map((option) => String(option.label)) : []
+          }
+          renderInput={(params) => (
+            <StyledTextField
+              {...params}
+              fullWidth
+              margin="normal"
+              label={label}
+              placeholder={field.placeholder}
+              error={Boolean(error)}
+              helperText={error?.message?.toString()}
+              {...register(name, registerOptions)}
+              {...rest}
+            />
+          )}
+        />
+      );
     case 'select':
       return (
         <StyledTextField
@@ -89,10 +98,7 @@ export const FormField = ({
           {...rest}
         >
           {(field.options ?? []).map((option) => (
-            <MenuItem
-              key={option.value}
-              value={option.value}
-            >
+            <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
           ))}
@@ -107,12 +113,7 @@ export const FormField = ({
             mb: 1,
             width: '100%',
           }}
-          control={
-            <StyledCheckbox
-              {...register(name, registerOptions)}
-              {...rest}
-            />
-          }
+          control={<StyledCheckbox {...register(name, registerOptions)} {...rest} />}
           label={label}
         />
       );
@@ -125,12 +126,7 @@ export const FormField = ({
             mb: 1,
             width: '100%',
           }}
-          control={
-            <StyledSwitch
-              {...register(name, registerOptions)}
-              {...rest}
-            />
-          }
+          control={<StyledSwitch {...register(name, registerOptions)} {...rest} />}
           label={label}
         />
       );

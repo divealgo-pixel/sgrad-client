@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
@@ -40,19 +39,13 @@ export const CustomerSrchPage = () => {
   };
 
   return (
-    <Paper
-      elevation={1}
-      sx={{
-        p: 2,
-        borderRadius: 3,
-      }}
-    >
+    <>
       <StyledSection>
         <PageTitle>
           Customer Relationship Data Management
         </PageTitle>
 
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2}  sx={{ width: '100%', m: 0 }}>
           <PrimaryButton variant="outlined" startIcon={<PersonAddAlt1Icon />} onClick={handleAddCustomer}>
             Add Customer
           </PrimaryButton>
@@ -66,15 +59,7 @@ export const CustomerSrchPage = () => {
           SEARCH FORM
       ======================================================= */}
 
-      <Paper
-        elevation={1}
-        sx={{
-          p: 2,
-          borderRadius: 3,
-        }}
-      >
         <Form config={customerSearchConfig} onSubmit={handleSearch} />
-      </Paper>
 
       <CustomDataGrid
         rows={rows}
@@ -89,7 +74,7 @@ export const CustomerSrchPage = () => {
           console.log('DELETE', id, row);
         }}
       />
-    </Paper>
+    </>
   );
 };
 

@@ -1,4 +1,3 @@
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
@@ -63,7 +62,7 @@ export function CustomDataGrid<T extends GridValidRowModel>({
     headerAlign: 'center',
 
     renderCell: (params: GridRenderCellParams) => (
-      <Stack direction="row" spacing={0.5}>
+      <Stack direction="row" spacing={0.5}  sx={{ width: '100%', m: 0 }}>
         {onView && (
           <Tooltip title="View">
             <IconButton
@@ -106,17 +105,6 @@ export function CustomDataGrid<T extends GridValidRowModel>({
   const finalColumns = showActions ? [...columns, actionColumn] : columns;
 
   return (
-    <Paper
-      elevation={0}
-      sx={{
-        width: '100%',
-        mt: 3,
-        borderRadius: 3,
-        overflow: 'hidden',
-        border: '1px solid',
-        borderColor: 'divider',
-      }}
-    >
       <DataGrid
         rows={rows}
         columns={finalColumns}
@@ -165,7 +153,6 @@ export function CustomDataGrid<T extends GridValidRowModel>({
           },
         }}
       />
-    </Paper>
   );
 }
 

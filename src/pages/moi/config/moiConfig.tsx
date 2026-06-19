@@ -1,13 +1,20 @@
 import type { Field } from '../../../components/types/form';
+import type { GridColDef } from '@mui/x-data-grid';
 
 export const moiEntryColumns: Field[] = [
   {
-    type: 'text',
+    type: 'autocomplete',
     name: 'guestName',
     label: 'Guest Name',
-    placeholder: 'Enter Guest Name',
     required: true,
     grid: 6,
+    placeholder: 'Enter Guest Name',
+    options: [
+      { label: 'Father', value: 'Father' },
+      { label: 'Husband', value: 'Husband' },
+      { label: 'Wife', value: 'Wife' },
+      { label: 'Mother', value: 'Mother' },
+    ],
   },
   {
     type: 'select',
@@ -38,7 +45,7 @@ export const moiEntryColumns: Field[] = [
     options: [],
     grid: 6,
   },
- 
+
   {
     type: 'number',
     name: 'old',
@@ -50,12 +57,12 @@ export const moiEntryColumns: Field[] = [
   {
     type: 'number',
     name: 'new',
-    label: 'New Old',
+    label: 'New Moi',
     required: true,
     placeholder: 'New Moi',
     grid: 6,
   },
-   {
+  {
     type: 'text',
     name: 'mobile',
     label: 'Mobile',
@@ -82,5 +89,39 @@ export const moiSummary = [
   {
     label: 'Total',
     value: 1000000,
+  },
+];
+
+
+
+export const moiColumns: GridColDef[] = [
+  {
+    field: 'id',
+    headerName: 'ID',
+    width: 100,
+    align: 'center',
+    headerAlign: 'center',
+  },
+  {
+    field: 'guestName',
+    headerName: 'Guest Name',
+    flex: 1,
+    minWidth: 250,
+  },
+  {
+    field: 'oldMoi',
+    headerName: 'Old Moi',
+    width: 150,
+    type: 'number',
+    align: 'right',
+    headerAlign: 'right',
+  },
+  {
+    field: 'newMoi',
+    headerName: 'New Moi',
+    width: 150,
+    type: 'number',
+    align: 'right',
+    headerAlign: 'right',
   },
 ];
