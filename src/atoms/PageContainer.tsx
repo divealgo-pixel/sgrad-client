@@ -10,13 +10,9 @@ const PageContainer = ({ children }: PageContainerProps) => {
     <Box
       sx={{
         width: '100%',
-        maxWidth: '1800px',
+        maxWidth: '1366px',
         mx: 'auto',
-        m: {
-          xs: 2,
-          sm: 3,
-          md: 4,
-        },
+        py:8,
       }}
     >
       {children}

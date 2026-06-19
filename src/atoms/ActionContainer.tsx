@@ -8,15 +8,11 @@ export const ActionContainer = styled(Box)(({ theme }) => ({
 
   justifyContent: 'flex-end',
 
-  alignItems: 'center',
-
   gap: theme.spacing(2),
 
   marginTop: theme.spacing(3),
 
   [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column',
-
-    justifyContent: 'stretch',
+    flexDirection: 'column-reverse',
   },
 }));

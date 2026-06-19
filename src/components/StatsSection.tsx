@@ -1,7 +1,6 @@
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
-
 
 import type { ReactNode } from 'react';
 
@@ -17,34 +16,93 @@ interface StatsSectionProps {
 
 const StatsSection = ({ items }: StatsSectionProps) => {
   return (
-    <Grid container spacing={2}  sx={{ width: '100%', m: 0 }}>
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: 'repeat(2, 1fr)',
+          sm: 'repeat(4, 1fr)',
+          md: 'repeat(4, 1fr)',
+          lg: 'repeat(4, 1fr)',
+        },
+        gap: 2,
+        width: '100%',
+      }}
+    >
       {items.map((item) => (
-        <Grid
+        <Box
           key={item.label}
-          size={{
-            xs: 6,
-            sm: 3,
-            md: 3,
+          sx={{
+            height: 50,
+            px: 1.5,
+
+            display: 'flex',
+            alignItems: 'center',
+
+            borderRadius: 2,
+
+            bgcolor: (theme) =>
+              theme.palette.mode === 'light'
+                ? 'rgba(25,118,210,0.05)'
+                : 'rgba(255,255,255,0.04)',
+
+            border: '1px solid',
+            borderColor: 'divider',
+
+            overflow: 'hidden',
           }}
         >
-             <Typography component="div" variant="h4" color="text.secondary">
-              {item.label}
-            </Typography>
-            {item.icon ?? <CheckCircleOutlineOutlinedIcon/>}
-
-            <Typography
-              component="div"
-              variant="h3"
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              width: '100%',
+              gap: 1,
+            }}
+          >
+            <Box
               sx={{
-                fontWeight: 700,
-                mt: 1,
+                color: 'success.main',
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
-              {item.value}
-            </Typography>
-        </Grid>
+              {item.icon ?? (
+                <CheckCircleOutlineOutlinedIcon fontSize="small" />
+              )}
+            </Box>
+
+            <Box
+              sx={{
+                flexGrow: 1,
+                minWidth: 0,
+              }}
+            >
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                sx={{
+                  display: 'block',
+                  lineHeight: 1,
+                }}
+              >
+                {item.label}
+              </Typography>
+
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 700,
+                  lineHeight: 1.2,
+                }}
+              >
+                {item.value}
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
       ))}
-    </Grid>
+    </Box>
   );
 };
 

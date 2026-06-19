@@ -29,7 +29,7 @@ export const Form = ({ config, onSubmit, submitLabel }: FormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid container spacing={2} columns={12}  sx={{ width: '100%', m: 0 }}>
+      <Grid container spacing={2} columns={12}>
         {config.map((field) => (
           <Grid
             key={field.name}
