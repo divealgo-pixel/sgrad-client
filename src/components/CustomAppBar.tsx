@@ -93,7 +93,7 @@ export default function ResponsiveAppBar() {
           {/* Replace with your actual logo */}
           <Box
             component="img"
-            src="src/assets/saido_web.png"
+            src="/saido.svg"
             alt="SaiDo Core Systems"
             onClick={handleHomeClick}
             sx={{
