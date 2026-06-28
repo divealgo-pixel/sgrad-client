@@ -13,7 +13,12 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 
-const navItems = ['Home', 'Products', 'Blog', 'About'];
+const navItems = [
+  { title: 'Home', path: '/' },
+  { title: 'Products', path: '/crmsrch' },
+  { title: 'Blog', path: '/blog' },
+  { title: 'About', path: '/about' },
+];
 
 const appBarStyles = {
   height: '40px',
@@ -33,9 +38,9 @@ export default function ResponsiveAppBar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const handleHomeClick = () =>{
-    navigate("/")
-  }
+  const handleHomeClick = () => {
+    navigate('/');
+  };
 
   return (
     <AppBar position="fixed" elevation={0} sx={appBarStyles}>
@@ -44,9 +49,9 @@ export default function ResponsiveAppBar() {
           minHeight: {
             xs: 30,
             md: 50,
-            alignContent:"center"
+            alignContent: 'center',
           },
-          px: { xs: 1.5, md: 3 },
+          // px: { xs: 1.5, md: 3 },
         }}
       >
         {/* Mobile Menu */}
@@ -64,8 +69,14 @@ export default function ResponsiveAppBar() {
 
         <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
           {navItems.map((item) => (
-            <MenuItem key={item} onClick={handleCloseNavMenu}>
-              {item}
+            <MenuItem
+              key={item.path}
+              onClick={() => {
+                navigate(item.path);
+                handleCloseNavMenu();
+              }}
+            >
+              {item.title}
             </MenuItem>
           ))}
         </Menu>
@@ -143,7 +154,8 @@ export default function ResponsiveAppBar() {
         >
           {navItems.map((item) => (
             <Button
-              key={item}
+              key={item.path}
+              onClick={() => navigate(item.path)}
               sx={{
                 color: '#ffffff',
                 fontWeight: 600,
@@ -156,7 +168,7 @@ export default function ResponsiveAppBar() {
                 },
               }}
             >
-              {item}
+              {item.title}
             </Button>
           ))}
         </Box>
