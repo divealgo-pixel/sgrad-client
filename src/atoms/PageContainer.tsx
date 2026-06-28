@@ -13,6 +13,7 @@ const PageContainer = ({ children }: PageContainerProps) => {
         maxWidth: '1366px',
         mx: 'auto',
         py:8,
+        backgroud:"#ff0000"
       }}
     >
       {children}
