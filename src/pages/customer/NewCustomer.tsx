@@ -4,17 +4,13 @@ import { Form } from '../../components/CustomForm';
 import { clientRequirementColumns } from './config/customerConfig';
 
 export default function Register() {
- 
   return (
- <>
+    <>
       <StyledSection>
-        <PageTitle>
-          Customer Entry
-        </PageTitle>
+        <PageTitle>Customer Entry</PageTitle>
       </StyledSection>
 
-        <Form config={clientRequirementColumns} onSubmit={()=>{}} submitLabel="Save" />
-     </>
-     
+      <Form config={clientRequirementColumns} onSubmit={() => {}} submitLabel="Save" />
+    </>
   );
 }

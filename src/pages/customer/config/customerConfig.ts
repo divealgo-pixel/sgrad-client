@@ -62,7 +62,7 @@ export const customerSearchConfig: Field[] = [
         value: '3',
       },
     ],
-  }
+  },
 ];
 
 export const customeDetailsCoulmn: GridColDef[] = [
@@ -104,14 +104,14 @@ export const clientRequirementColumns: Field[] = [
     name: 'companyName',
     label: 'Company Name',
     placeholder: 'Enter company name',
-    required:true,
+    required: true,
     grid: 6,
   },
   {
     type: 'text',
     name: 'contactPerson',
     label: 'Contact Person',
-    required:true,
+    required: true,
     placeholder: 'Enter contact person name',
     grid: 6,
   },
@@ -119,7 +119,7 @@ export const clientRequirementColumns: Field[] = [
     type: 'text',
     name: 'mobile',
     label: 'Mobile',
-    required:true,
+    required: true,
     placeholder: 'Enter mobile number',
     grid: 6,
   },
@@ -127,7 +127,7 @@ export const clientRequirementColumns: Field[] = [
     type: 'text',
     name: 'email',
     label: 'Email',
-    required:true,
+    required: true,
     placeholder: 'Enter email address',
     grid: 6,
   },

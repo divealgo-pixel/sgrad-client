@@ -92,8 +92,6 @@ export const moiSummary = [
   },
 ];
 
-
-
 export const moiColumns: GridColDef[] = [
   {
     field: 'id',

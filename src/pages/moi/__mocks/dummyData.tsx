@@ -1,4 +1,4 @@
-import type { MoiRow } from "../types";
+import type { MoiRow } from '../types';
 
 export const rows: MoiRow[] = [
   {

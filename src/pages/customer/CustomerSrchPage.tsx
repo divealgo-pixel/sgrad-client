@@ -32,7 +32,7 @@ export const CustomerSrchPage = () => {
 
     // navigate("/customer/add");
   };
-    const handleMoiPage = () => {
+  const handleMoiPage = () => {
     navigate('/moi');
 
     // navigate("/customer/add");
@@ -41,15 +41,21 @@ export const CustomerSrchPage = () => {
   return (
     <>
       <StyledSection>
-        <PageTitle>
-          Customer Relationship Data Management
-        </PageTitle>
+        <PageTitle>Customer Relationship Data Management</PageTitle>
 
-        <Stack direction="row" spacing={2}  sx={{ width: '100%', m: 0 }}>
-          <PrimaryButton variant="outlined" startIcon={<PersonAddAlt1Icon />} onClick={handleAddCustomer}>
+        <Stack direction="row" spacing={2} sx={{ width: '100%', m: 0 }}>
+          <PrimaryButton
+            variant="outlined"
+            startIcon={<PersonAddAlt1Icon />}
+            onClick={handleAddCustomer}
+          >
             Add Customer
           </PrimaryButton>
-           <PrimaryButton variant="outlined" startIcon={<PersonAddAlt1Icon />} onClick={handleMoiPage}>
+          <PrimaryButton
+            variant="outlined"
+            startIcon={<PersonAddAlt1Icon />}
+            onClick={handleMoiPage}
+          >
             Moi Page
           </PrimaryButton>
         </Stack>
@@ -59,7 +65,7 @@ export const CustomerSrchPage = () => {
           SEARCH FORM
       ======================================================= */}
 
-        <Form config={customerSearchConfig} onSubmit={handleSearch} />
+      <Form config={customerSearchConfig} onSubmit={handleSearch} />
 
       <CustomDataGrid
         rows={rows}

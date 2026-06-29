@@ -10,7 +10,7 @@ export type Field =
       label: string;
       placeholder?: string;
       grid?: number;
-      required?:boolean;
+      required?: boolean;
     }
   | {
       type: 'textarea';
@@ -19,7 +19,7 @@ export type Field =
       placeholder?: string;
       rows?: number;
       grid?: number;
-      required?:boolean;
+      required?: boolean;
     }
   | {
       type: 'select';
@@ -27,21 +27,21 @@ export type Field =
       label: string;
       options: SelectOption[];
       grid?: number;
-      required?:boolean;
+      required?: boolean;
     }
   | {
       type: 'checkbox' | 'switch';
       name: string;
       label: string;
       grid?: number;
-      required?:boolean;
+      required?: boolean;
     }
-   | {
+  | {
       type: 'autocomplete';
       name: string;
       label: string;
       options: SelectOption[];
       grid?: number;
-      required?:boolean;
-      placeholder:string;
-    } ;
+      required?: boolean;
+      placeholder: string;
+    };

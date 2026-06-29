@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
+import AppCardSection from '../../components/AppCardSection';
+import { servicesCard } from './config/dashboardConfig';
 
 const bannerImages = ['/banner1.png', '/banner2.png', '/banner3.png', '/banner4.png'];
 
@@ -40,6 +42,13 @@ function DashBoard() {
             height: '100%',
             objectFit: 'fill',
           }}
+        />
+      </Box>
+      <Box>
+        <AppCardSection
+          groupName="What We Offer"
+          groupDescription="Delivering innovative digital solutions that empower businesses to grow and succeed."
+          items={servicesCard}
         />
       </Box>
     </Box>

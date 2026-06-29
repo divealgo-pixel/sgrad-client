@@ -62,7 +62,7 @@ export function CustomDataGrid<T extends GridValidRowModel>({
     headerAlign: 'center',
 
     renderCell: (params: GridRenderCellParams) => (
-      <Stack direction="row" spacing={0.5}  sx={{ width: '100%', m: 0 }}>
+      <Stack direction="row" spacing={0.5} sx={{ width: '100%', m: 0 }}>
         {onView && (
           <Tooltip title="View">
             <IconButton
@@ -105,54 +105,54 @@ export function CustomDataGrid<T extends GridValidRowModel>({
   const finalColumns = showActions ? [...columns, actionColumn] : columns;
 
   return (
-      <DataGrid
-        rows={rows}
-        columns={finalColumns}
-        loading={loading}
-        disableRowSelectionOnClick
-        pageSizeOptions={[10, 25, 50, 100]}
-        disableColumnMenu
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 10,
-              page: 0,
-            },
+    <DataGrid
+      rows={rows}
+      columns={finalColumns}
+      loading={loading}
+      disableRowSelectionOnClick
+      pageSizeOptions={[10, 25, 50, 100]}
+      disableColumnMenu
+      initialState={{
+        pagination: {
+          paginationModel: {
+            pageSize: 10,
+            page: 0,
           },
-        }}
-        sx={{
-          height,
+        },
+      }}
+      sx={{
+        height,
 
-          border: 0,
+        border: 0,
 
-          '& .MuiDataGrid-columnHeaders .MuiDataGrid-columnHeader': {
-            backgroundColor: '#000000 !important',
-            borderBottom: '2px solid #e2e8f0',
-          },
+        '& .MuiDataGrid-columnHeaders .MuiDataGrid-columnHeader': {
+          backgroundColor: '#000000 !important',
+          borderBottom: '2px solid #e2e8f0',
+        },
 
-          '& .MuiDataGrid-columnHeaderTitle': {
-            fontWeight: 700,
-            color:"#ffffff"
-          },
+        '& .MuiDataGrid-columnHeaderTitle': {
+          fontWeight: 700,
+          color: '#ffffff',
+        },
 
-          '& .MuiDataGrid-row:nth-of-type(even)': {
-            backgroundColor: '#fafafa',
-          },
+        '& .MuiDataGrid-row:nth-of-type(even)': {
+          backgroundColor: '#fafafa',
+        },
 
-          '& .MuiDataGrid-row:hover': {
-            backgroundColor: '#e3f2fd',
-            cursor: 'pointer',
-          },
+        '& .MuiDataGrid-row:hover': {
+          backgroundColor: '#e3f2fd',
+          cursor: 'pointer',
+        },
 
-          '& .MuiDataGrid-cell': {
-            borderColor: '#f1f5f9',
-          },
+        '& .MuiDataGrid-cell': {
+          borderColor: '#f1f5f9',
+        },
 
-          '& .MuiDataGrid-footerContainer': {
-            borderTop: '1px solid #e2e8f0',
-          },
-        }}
-      />
+        '& .MuiDataGrid-footerContainer': {
+          borderTop: '1px solid #e2e8f0',
+        },
+      }}
+    />
   );
 }
 

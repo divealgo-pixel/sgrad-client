@@ -48,7 +48,7 @@ export const DateRangeField = ({
   toLabel = 'To',
 }: DateRangeFieldProps) => {
   return (
-    <Stack direction="row" spacing={2}  sx={{ width: '100%', m: 0 }}>
+    <Stack direction="row" spacing={2} sx={{ width: '100%', m: 0 }}>
       <StyledDateField
         label={fromLabel}
         type="date"

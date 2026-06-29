@@ -15,7 +15,7 @@ type FormValues = Record<string, unknown>;
 type FormProps = {
   config: Field[];
   onSubmit: SubmitHandler<FormValues>;
-  submitLabel?: string
+  submitLabel?: string;
 };
 
 export const Form = ({ config, onSubmit, submitLabel }: FormProps) => {
@@ -25,7 +25,7 @@ export const Form = ({ config, onSubmit, submitLabel }: FormProps) => {
   const onCancel = () => {
     reset();
     navigate(-1);
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -47,16 +47,18 @@ export const Form = ({ config, onSubmit, submitLabel }: FormProps) => {
       </Grid>
 
       <ActionContainer>
-        {submitLabel && <NegativeButton variant="outlined" onClick={onCancel}>
-          Cancel
-        </NegativeButton>}
+        {submitLabel && (
+          <NegativeButton variant="outlined" onClick={onCancel}>
+            Cancel
+          </NegativeButton>
+        )}
 
         <ResetButton variant="outlined" onClick={() => reset()}>
           Reset
         </ResetButton>
 
         <SearchButton variant="outlined" type="submit">
-          {submitLabel ?? "Search"}
+          {submitLabel ?? 'Search'}
         </SearchButton>
       </ActionContainer>
     </form>
